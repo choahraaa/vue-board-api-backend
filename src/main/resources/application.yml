@@ -8,3 +8,7 @@ spring:
   thymeleaf:
     prefix: classpath:/static/
     suffix: .html
+
+mybatis:
+  type-aliases-package: com.board.entity
+  mapper-locations: mapper/*Mapper.xml
