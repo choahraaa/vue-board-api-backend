@@ -1,7 +1,7 @@
-package com.board.api.board;
+package com.example.boardapi.board.api.board;
 
-import com.board.entity.board.Board;
-import com.board.mapper.board.BoardMapper;
+import com.example.boardapi.board.entity.board.Board;
+import com.example.boardapi.board.mapper.board.BoardMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,4 +22,5 @@ public class ApiBoardController {
         boardMapper.insert(board);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
 }

@@ -1,6 +1,6 @@
-package com.board.mapper.board;
+package com.example.boardapi.board.mapper.board;
 
-import com.board.entity.board.Board;
+import com.example.boardapi.board.entity.board.Board;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
