@@ -10,5 +10,5 @@ spring:
     suffix: .html
 
 mybatis:
-  type-aliases-package: com.board.entity
+  type-aliases-package: com.example.boardapi.board.entity
   mapper-locations: mapper/*Mapper.xml
