@@ -4,9 +4,9 @@ import com.example.boardapi.board.entity.board.Board;
 import com.example.boardapi.board.mapper.board.BoardMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/api-board")
@@ -19,6 +19,8 @@ public class ApiBoardController {
 
     @PostMapping("")
     public ResponseEntity<?> insert(Board board) {
+        String id = UUID.randomUUID().toString();
+        board.setId(id);
         boardMapper.insert(board);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
