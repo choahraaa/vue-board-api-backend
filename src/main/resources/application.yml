@@ -12,3 +12,5 @@ spring:
 mybatis:
   type-aliases-package: com.example.boardapi.board.entity
   mapper-locations: mapper/*Mapper.xml
+server:
+  port: 9090
