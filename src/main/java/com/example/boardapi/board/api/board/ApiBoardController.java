@@ -18,7 +18,7 @@ public class ApiBoardController {
     }
 
     @PostMapping("")
-    public ResponseEntity<?> insert(Board board) {
+    public ResponseEntity<?> insert(@RequestBody Board board) {
         String id = UUID.randomUUID().toString();
         board.setId(id);
         boardMapper.insert(board);
