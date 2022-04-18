@@ -32,4 +32,10 @@ public class ApiBoardController {
         return  new ResponseEntity<>(search, HttpStatus.OK);
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<?> fetch(@PathVariable("id") String id) {
+        Board boardFetch = boardMapper.fetch(Board.builder().id(id).build());
+        return new ResponseEntity<>(boardFetch, HttpStatus.OK);
+    }
+
 }

@@ -37,4 +37,14 @@
         FROM board
     </select>
 
+    <select id="fetch" resultMap="BaseResultMap" parameterType="Board">
+        SELECT
+        <include refid="columns">
+            <property name="alias" value=""/>
+            <property name="prefix" value=""/>
+        </include>
+          FROM board
+         WHERE id = #{id}
+    </select>
+
 </mapper>

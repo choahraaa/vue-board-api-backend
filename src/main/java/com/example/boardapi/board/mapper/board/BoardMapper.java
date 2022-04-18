@@ -10,4 +10,6 @@ public interface BoardMapper {
     void insert(Board board);
 
     List<Board> search();
+
+    Board fetch(Board board);
 }
