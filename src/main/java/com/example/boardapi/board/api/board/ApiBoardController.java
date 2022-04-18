@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -23,6 +24,12 @@ public class ApiBoardController {
         board.setId(id);
         boardMapper.insert(board);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @GetMapping("")
+    public ResponseEntity<?> search() {
+        List<Board> search = boardMapper.search();
+        return  new ResponseEntity<>(search, HttpStatus.OK);
     }
 
 }

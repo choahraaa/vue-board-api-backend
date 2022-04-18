@@ -28,7 +28,7 @@
             )
     </insert>
 
-    <select id="search" resultMap="BaseResultMap" parameterType="Board">
+    <select id="search" resultMap="BaseResultMap">
         SELECT
         <include refid="columns">
             <property name="alias" value=""/>
