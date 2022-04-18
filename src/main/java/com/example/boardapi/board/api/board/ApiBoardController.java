@@ -38,4 +38,11 @@ public class ApiBoardController {
         return new ResponseEntity<>(boardFetch, HttpStatus.OK);
     }
 
+    @PutMapping("{id}")
+    public ResponseEntity<?> update(@PathVariable("id") String id, @RequestBody Board board) {
+        board.setId(id);
+        boardMapper.update(board);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }

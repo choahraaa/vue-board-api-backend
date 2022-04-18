@@ -12,4 +12,6 @@ public interface BoardMapper {
     List<Board> search();
 
     Board fetch(Board board);
+
+    void update(Board board);
 }
