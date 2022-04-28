@@ -9,7 +9,7 @@ import java.util.List;
 public interface BoardMapper {
     void insert(Board board);
 
-    List<Board> search();
+    List<Board> search(Board board);
 
     Board fetch(Board board);
 

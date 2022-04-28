@@ -28,13 +28,16 @@
             )
     </insert>
 
-    <select id="search" resultMap="BaseResultMap">
+    <select id="search" parameterType="Board" resultMap="BaseResultMap">
         SELECT
         <include refid="columns">
             <property name="alias" value=""/>
             <property name="prefix" value=""/>
         </include>
         FROM board
+        <if test=" null != title and '' != title ">
+            WHERE title LIKE CONCAT(#{title}, '%')
+        </if>
     </select>
 
     <select id="fetch" resultMap="BaseResultMap" parameterType="Board">
