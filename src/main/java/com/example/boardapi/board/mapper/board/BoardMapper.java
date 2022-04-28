@@ -14,4 +14,6 @@ public interface BoardMapper {
     Board fetch(Board board);
 
     void update(Board board);
+
+    void delete(Board board);
 }

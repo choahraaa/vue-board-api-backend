@@ -54,4 +54,9 @@
              , update_date = current_timestamp()
         WHERE id = #{id}
     </update>
+
+    <delete id="delete" parameterType="Board">
+        DELETE FROM board
+              WHERE id = #{id}
+    </delete>
 </mapper>

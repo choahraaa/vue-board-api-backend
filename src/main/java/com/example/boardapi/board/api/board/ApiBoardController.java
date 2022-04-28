@@ -29,7 +29,7 @@ public class ApiBoardController {
     @GetMapping("")
     public ResponseEntity<?> search() {
         List<Board> search = boardMapper.search();
-        return  new ResponseEntity<>(search, HttpStatus.OK);
+        return new ResponseEntity<>(search, HttpStatus.OK);
     }
 
     @GetMapping("{id}")
@@ -45,4 +45,9 @@ public class ApiBoardController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") String id) {
+        boardMapper.delete(Board.builder().id(id).build());
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
