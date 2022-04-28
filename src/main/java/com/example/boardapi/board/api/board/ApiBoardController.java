@@ -27,8 +27,8 @@ public class ApiBoardController {
     }
 
     @GetMapping("")
-    public ResponseEntity<?> search() {
-        List<Board> search = boardMapper.search();
+    public ResponseEntity<?> search(Board board) {
+        List<Board> search = boardMapper.search(board);
         return new ResponseEntity<>(search, HttpStatus.OK);
     }
 
