@@ -49,6 +49,11 @@
         </if>
     </select>
 
+    <select id="searchCount" parameterType="Board" resultType="int">
+        SELECT COUNT(*) AS cnt
+          FROM board
+    </select>
+
     <select id="fetch" resultMap="BaseResultMap" parameterType="Board">
         SELECT
         <include refid="columns">

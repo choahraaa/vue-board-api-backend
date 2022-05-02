@@ -16,4 +16,6 @@ public interface BoardMapper {
     void update(Board board);
 
     void delete(Board board);
+
+    int searchCount(Board board);
 }
