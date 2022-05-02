@@ -17,6 +17,7 @@ public class Board {
     private int currentPage = 1;
     private int pagingSize = 3;
     private int pageSize = 3;
+    private int totalCount = 0;
 
     public int getStartPage() {
         return (currentPage - 1) * pageSize;
