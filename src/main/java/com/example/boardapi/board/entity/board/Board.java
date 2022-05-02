@@ -11,4 +11,6 @@ public class Board {
     private String id;
     private String title;
     private String content;
+    private String type;
+    private String keyword;
 }
