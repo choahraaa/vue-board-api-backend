@@ -35,8 +35,13 @@
             <property name="prefix" value=""/>
         </include>
         FROM board
-        <if test=" null != title and '' != title ">
-            WHERE title LIKE CONCAT(#{title}, '%')
+        <if test=" null != type and '' != type ">
+            <if test=' type == "title"'>
+                 WHERE title LIKE CONCAT(#{keyword}, '%')
+            </if>
+            <if test=' type == "content"'>
+                WHERE content LIKE CONCAT(#{keyword}, '%')
+            </if>
         </if>
     </select>
 
