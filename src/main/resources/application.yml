@@ -14,3 +14,7 @@ mybatis:
   mapper-locations: mapper/*Mapper.xml
 server:
   port: 9090
+
+
+logging:
+  config: classpath:logback-spring.xml
