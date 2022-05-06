@@ -1,5 +1,6 @@
 package com.example.boardapi.board.entity.board;
 
+import com.example.boardapi.board.Paging;
 import lombok.*;
 
 @Builder
@@ -13,13 +14,17 @@ public class Board {
     private String content;
     private String type;
     private String keyword;
+    private Paging paging = new Paging();
 
-    private int currentPage = 1;
-    private int pagingSize = 3;
-    private int pageSize = 3;
-    private int totalCount = 0;
-
-    public int getStartPage() {
-        return (currentPage - 1) * pageSize;
+    @Override
+    public String toString() {
+        return "Board{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", type='" + type + '\'' +
+                ", keyword='" + keyword + '\'' +
+                ", paging=" + paging +
+                '}';
     }
 }

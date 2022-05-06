@@ -1,12 +1,15 @@
 package com.example.boardapi.board.api.board;
 
+import com.example.boardapi.board.Paging;
 import com.example.boardapi.board.entity.board.Board;
 import com.example.boardapi.board.mapper.board.BoardMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -28,8 +31,13 @@ public class ApiBoardController {
 
     @GetMapping("")
     public ResponseEntity<?> search(Board board) {
-        List<Board> search = boardMapper.search(board);
-        return new ResponseEntity<>(search, HttpStatus.OK);
+        board.getPaging().setTotalCount(boardMapper.searchCount(board));
+        List<Board> search = boardMapper.searchPaging(board);
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("search", search);
+        result.put("data", board);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @GetMapping("{id}")

@@ -49,6 +49,29 @@
         </if>
     </select>
 
+    <select id="searchPaging" parameterType="Board" resultMap="BaseResultMap">
+        SELECT
+        <include refid="columns">
+            <property name="alias" value=""/>
+            <property name="prefix" value=""/>
+        </include>
+        FROM board
+        <if test=" null != type ">
+            <if test=' type == "title"'>
+                WHERE title LIKE CONCAT(#{keyword}, '%')
+            </if>
+            <if test=' type == "content"'>
+                WHERE content LIKE CONCAT(#{keyword}, '%')
+            </if>
+            <if test=' type == ""'>
+                WHERE content LIKE CONCAT(#{keyword}, '%')
+                OR title LIKE CONCAT(#{keyword}, '%')
+            </if>
+        </if>
+        ORDER BY create_date
+        LIMIT #{paging.startPageNum}, #{paging.pageSize}
+    </select>
+
     <select id="searchCount" parameterType="Board" resultType="int">
         SELECT COUNT(*) AS cnt
           FROM board
