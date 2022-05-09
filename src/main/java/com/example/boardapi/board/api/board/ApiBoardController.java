@@ -1,6 +1,5 @@
 package com.example.boardapi.board.api.board;
 
-import com.example.boardapi.board.Paging;
 import com.example.boardapi.board.entity.board.Board;
 import com.example.boardapi.board.mapper.board.BoardMapper;
 import org.springframework.http.HttpStatus;

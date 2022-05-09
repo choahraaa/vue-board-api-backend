@@ -1,6 +1,6 @@
 package com.example.boardapi.board.entity.board;
 
-import com.example.boardapi.board.Paging;
+import com.example.boardapi.board.entity.Paging;
 import lombok.*;
 
 @Builder
