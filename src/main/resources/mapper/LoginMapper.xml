@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.boardapi.board.mapper.login.LoginMapper" >
+    <resultMap id="BaseResultMap" type="Login">
+        <result column="login_id" property="loginId"/>
+        <result column="login_pw" property="loginPw"/>
+    </resultMap>
+
+    <sql id="columns">
+          ${alias}login_id AS ${prefix}login_id
+        , ${alias}login_pw AS ${prefix}login_pw
+        , ${alias}create_date AS ${prefix}create_date
+        , ${alias}update_date AS ${prefix}update_date
+    </sql>
+
+    <select id="loginMember" resultMap="BaseResultMap" parameterType="Login">
+        SELECT
+        <include refid="columns">
+            <property name="alias" value=""/>
+            <property name="prefix" value=""/>
+        </include>
+        FROM login
+        WHERE login_id = #{loginId}
+          AND login_pw = #{loginPw}
+    </select>
+</mapper>
